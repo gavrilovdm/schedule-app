@@ -1,0 +1,16 @@
+<ng-container *ngIf="schedule && schedule.length > 0">
+  <p *ngIf="isAdmin">Click on a time slot to book it or unbook it</p>
+  <div class="schedule-grid">
+    <div *ngFor="let scheduleItem of schedule; trackBy: trackByDay" class="schedule-row">
+      <div class="day-cell">{{scheduleItem.day | titlecase}}</div>
+      <div *ngFor="let hour of hourCells; let i = index"
+           class="hour-cell"
+           (click)="onCellClick(scheduleItem.day, i)"
+           [class.booked]="scheduleItem.bookedTime.includes(i)">
+        {{i}}:00
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="!schedule || schedule.length === 0"><p>No schedule</p></ng-container>
