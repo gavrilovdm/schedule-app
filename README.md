@@ -1,59 +1,59 @@
-# ScheduleApp
+# Schedule App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
+A web application for managing and viewing schedules with user authentication and role-based access control.
 
-## Development server
+## Main Features
 
-To start a local development server, run:
+- **User Authentication**: Secure login system with role-based access (admin/user)
+- **Schedule Management**: 
+  - View weekly schedule in a grid format
+  - Time slots displayed in 24-hour format
+  - Admin users can toggle time slot availability
+  - Regular users can view the schedule
+- **Persistent Sessions**: User authentication state persists across page refreshes
+- **Simple Design**: Built with Angular Material for a modern, responsive UI
+- **API**: Node.js with Express
+## Technical Stack
 
+- **Frontend**: Angular 19.1
+- **UI Components**: Angular Material
+- **State Management**: RxJS with BehaviorSubject
+- **Authentication**: Local storage based session management
+- **API Communication**: RESTful endpoints with HTTP interceptors
+
+## Getting Started
+
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Start the node.js server:
+```bash
+node server.js
+```
+
+3. Start the development server:
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+4. Navigate to `http://localhost:4200/` in your browser
 
-## Code scaffolding
+Login credentials:
+- admin user - email: user1@example.com; password: user1@example.com
+- regular user - email: user2@example.com; password: user2@example.com
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Development Notes
 
-```bash
-ng generate component component-name
-```
+- The application uses a modular architecture with lazy-loaded routes
+- Authentication guard protects restricted routes
+- Admin-only features are protected both on frontend and backend
+- CORS is configured for local development environment
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## API Endpoints
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- `POST /api/login`: User authentication (public)
+- `GET /api/schedule`: Retrieve schedule data (authenticated only)
+- `GET /api/schedule/:day/:hour`: Check if time slot is booked (public)
+- `PATCH /api/schedule`: Update time slot status (admin only)
