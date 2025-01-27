@@ -11,7 +11,7 @@ import { AuthFormComponent, AuthCredentials } from '../../core/auth/auth-form.co
       <app-auth-form (formSubmit)="onSubmit($event)" [errorMessage]="error"></app-auth-form>
     </div>
   `,
-  styleUrl: './auth-page.component.css',
+  styleUrl: './auth-page.component.scss',
   standalone: true,
   imports: [
     CommonModule,

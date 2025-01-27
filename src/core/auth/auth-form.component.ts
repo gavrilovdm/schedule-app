@@ -57,7 +57,7 @@ export interface AuthCredentials {
       </div>
     </div>
   `,
-  styleUrl: './auth-form.component.css',
+  styleUrl: './auth-form.component.scss',
   standalone: true,
   imports: [
     CommonModule,

@@ -6,7 +6,7 @@ import { IDaySchedule } from '../../shared/models/schedule.model';
   selector: 'app-schedule',
   imports: [CommonModule],
   templateUrl: './schedule.component.html',
-  styleUrl: './schedule.component.css',
+  styleUrl: './schedule.component.scss',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
