@@ -5,13 +5,13 @@
   padding: 1px;
   border: 1px solid #ddd;
   overflow-x: scroll;
-}
 
-.schedule-row {
-  display: grid;
-  grid-template-columns: 100px repeat(24, 1fr);
-  gap: 1px;
-  background-color: #fff;
+  .schedule-row {
+    display: grid;
+    grid-template-columns: 100px repeat(24, 1fr);
+    gap: 1px;
+    background-color: #fff;
+  }
 }
 
 .day-cell {
@@ -28,16 +28,16 @@
   text-align: center;
   cursor: pointer;
   transition: background-color 0.2s;
-}
 
-.hour-cell:hover {
-  background-color: #f0f0f0;
-}
+  &:hover {
+    background-color: #f0f0f0;
+  }
 
-.hour-cell.booked {
-  background-color: #ffebee;
-}
+  &.booked {
+    background-color: #ffebee;
 
-.hour-cell.booked:hover {
-  background-color: #ffcdd2;
+    &:hover {
+      background-color: #ffcdd2;
+    }
+  }
 }

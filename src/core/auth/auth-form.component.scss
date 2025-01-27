@@ -14,6 +14,14 @@
   background: white;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 600px) {
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 400px) {
+    padding: 1rem;
+  }
 }
 
 .form-title {
@@ -21,6 +29,10 @@
   margin-bottom: 1.5rem;
   color: #333;
   font-size: 1.5rem;
+
+  @media (max-width: 600px) {
+    font-size: 1.25rem;
+  }
 }
 
 .auth-form {
@@ -43,42 +55,15 @@
   width: 100%;
   padding: 0.75rem;
   margin-top: 1rem;
-}
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
-  .auth-form-wrapper {
-    padding: 1.5rem;
-  }
-
-  .form-title {
-    font-size: 1.25rem;
-  }
-}
-
-@media (max-width: 400px) {
-  .auth-form-wrapper {
-    padding: 1rem;
-  }
-
-  .form-container {
-    padding: 0.5rem;
+  .mat-icon {
+    margin-right: 0.5rem;
   }
 }
 
 .mat-icon {
   vertical-align: middle;
-}
-
-.submit-button .mat-icon {
-  margin-right: 0.5rem;
-}
-
-h2 {
-  text-align: center;
-  color: #333;
-  margin: 0 0 1.5rem 0;
-  font-weight: 500;
+  color: #666;
 }
 
 form {
@@ -100,21 +85,25 @@ button[type="submit"] {
   align-items: center;
   justify-content: center;
   gap: 8px;
+
+  &:not([disabled]) {
+    &:hover {
+      transform: translateY(-1px);
+      transition: transform 0.2s ease;
+    }
+  }
+
+  &[disabled] {
+    opacity: 0.7;
+  }
+
+  mat-icon {
+    color: inherit;
+  }
 }
 
-mat-icon {
-  color: #666;
-}
-
-button[type="submit"] mat-icon {
-  color: inherit;
-}
-
-button[type="submit"]:not([disabled]):hover {
-  transform: translateY(-1px);
-  transition: transform 0.2s ease;
-}
-
-button[disabled] {
-  opacity: 0.7;
+@media (max-width: 400px) {
+  .form-container {
+    padding: 0.5rem;
+  }
 } 
